@@ -344,16 +344,24 @@ export default class SLL {
     return this
   }
 
-  detectLoopbyLength(): NodeTuple | false {
-    const node = this._traverse((_, position) => position > this.length)
-    if (node) {
-      return [node[0], node[1] - this.length]
-    } else {
-      return false
-    }
+  /**
+   * Time Complexity: O(n)
+   * Auxiliary Space: O(n)
+   */
+  detectLoopByHashing(): boolean {
+    const set: Set<Node> = new Set()
+    const knot = this._traverse(node => {
+      if (set.has(node)) return true
+      set.add(node)
+    })
+    return Boolean(knot)
   }
 
-  detectLoopFloydCycleFindingAlgorithm() {
+  detectLoopbyLength(): boolean {
+    return Boolean(this._traverse((_, position) => position > this.length))
+  }
+
+  detectLoopFloydCycleFindingAlgorithm(): boolean {
     let slowPointer = this.head
     let fastPointer = this.head
 
@@ -363,7 +371,7 @@ export default class SLL {
       slowPointer = slowPointer.next
       fastPointer = fastPointer.next!.next
 
-      if (slowPointer === fastPointer) return [slowPointer, counter]
+      if (slowPointer === fastPointer) return true
     }
     return false
   }

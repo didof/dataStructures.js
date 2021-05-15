@@ -358,6 +358,17 @@ describe('operations', () => {
       beforeEach(() => {
         sll.knotByPosition(3)
       })
+      describe('detectLoopByHashing', () => {
+        test('empty sll', () => {
+          sll.clear()
+          expect(sll.detectLoopByHashing()).toBeFalsy()
+        })
+
+        test('not empty sll', () => {
+          expect(sll.detectLoopByHashing()).toBeTruthy()
+        })
+      })
+
       describe('detectLoopbyLength', () => {
         test('empty sll', () => {
           sll.clear()
