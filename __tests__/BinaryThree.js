@@ -28,3 +28,25 @@ describe('instantiation of tree', () => {
     expect(tree.root.left.left.value).toEqual(1)
   })
 })
+
+describe('static methods', () => {
+  it('calcMaxNodesAtLevel', () => {
+    const rootLevel = BinaryTree.calcMaxNodesAtLevel(0)
+    const firstLevel = BinaryTree.calcMaxNodesAtLevel(1)
+    const secondLevel = BinaryTree.calcMaxNodesAtLevel(2)
+
+    expect(rootLevel).toEqual(1)
+    expect(firstLevel).toEqual(2)
+    expect(secondLevel).toEqual(4)
+  })
+
+  it('calcMaxNodesAtHeight', () => {
+    const rootLevel = BinaryTree.calcMaxNodesAtLevel(0)
+    const firstLevel = BinaryTree.calcMaxNodesAtLevel(1)
+    const secondLevel = BinaryTree.calcMaxNodesAtLevel(2)
+
+    expect(rootLevel).toEqual(1)
+    expect(firstLevel).toEqual(2)
+    expect(secondLevel).toEqual(4)
+  })
+})

@@ -11,6 +11,11 @@ var BinaryTree = /** @class */ (function () {
         else
             this.root = new Node_1.default(value);
     }
+    BinaryTree.calcMaxNodesAtLevel = function (level) {
+        if (level == null || level < 0)
+            throw new Error();
+        return Math.pow(2, level);
+    };
     return BinaryTree;
 }());
 exports.default = BinaryTree;
