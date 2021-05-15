@@ -313,7 +313,7 @@ export default class SLL {
   }
 
   /**
-   * Find
+   * Search
    */
 
   find(cb: searchCb) {

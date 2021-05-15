@@ -26,7 +26,7 @@
     - it takes a second parameter to remove an amount of following nodes; only the last one it's returned
 - clear: empty the list (keep the same memory address)
 
-## Find
+## Search
 
 - by cb: returns the node identified by the provided callback
 - by value: returns the first occurrence of the provided target
